@@ -21,6 +21,8 @@ if (requestResponse.edited()) {
 return true;
 ```
 
+> There are several colors to choose from. When the dot is printed after HighlightColor there will suggestions of what colors to use.
+
 ### Highlight requests that uses http (not-secure)
 ```
 var request = requestResponse.request();
@@ -60,6 +62,19 @@ if(requestResponse.request().contains("first-interesting-word", true) || request
 
 return true;
 ```
+
+### Only show requests that have a redirect response 
+```
+if (!requestResponse.hasResponse()) {
+    return false;
+    }
+
+var response = requestResponse.response();
+return response.isStatusCodeClass(StatusCodeClass.CLASS_3XX_REDIRECTION);
+```
+
+> There are several StatusCodeClasses to choose from. When the dot is printed after StatusCodeClass there will be suggestions of what types to use.
+
 
 
 ## Add custom colums in HTTP History using bambdas
